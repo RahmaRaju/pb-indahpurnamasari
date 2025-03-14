@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "775641790954",
+    "project_id": "database-1d1d7",
+    "storage_bucket": "database-1d1d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775641790954:android:f7a0c4429298f55bcdda93",
+        "android_client_info": {
+          "package_name": "com.example.aplikasiindah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1U_twN9cFho01b8NODli569KmvGKWYxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

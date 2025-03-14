@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FCE4EC"
+    tools:context=".MainSetting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Judul -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengaturan"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#880E4F"
+            android:layout_marginBottom="25dp"/>
+
+        <!-- Tombol Ubah Password -->
+        <Button
+            android:id="@+id/btn_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubah Password"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E91E63"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Tombol Notifikasi -->
+        <Button
+            android:id="@+id/btn_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notifikasi"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#D81B60"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Tombol Privasi -->
+        <Button
+            android:id="@+id/btn_privacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privasi"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#C2185B"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Tombol Kembali -->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kembali"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#880E4F"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
