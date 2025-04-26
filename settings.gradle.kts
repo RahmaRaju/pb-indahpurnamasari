@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Aplikasi Indah"
+rootProject.name = "to-do-list"
 include(":app")
  

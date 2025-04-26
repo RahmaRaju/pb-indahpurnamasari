@@ -1,69 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/setting_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#FCE4EC"
-    tools:context=".MainSetting">
+    android:padding="20dp"
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:orientation="vertical">
 
-        <!-- Judul -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pengaturan"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="#880E4F"
-            android:layout_marginBottom="25dp"/>
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="109dp"
+            android:layout_marginBottom="28dp"
+            android:background="#72383D"
+            android:padding="26dp">
 
-        <!-- Tombol Ubah Password -->
-        <Button
-            android:id="@+id/btn_change_password"
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@null"
+                android:contentDescription="Kembali"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Pengaturan"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Setting Options -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ubah Password"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#E91E63"
-            android:layout_marginBottom="16dp"/>
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
 
-        <!-- Tombol Notifikasi -->
-        <Button
-            android:id="@+id/btn_notification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Notifikasi"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#D81B60"
-            android:layout_marginBottom="16dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
 
-        <!-- Tombol Privasi -->
-        <Button
-            android:id="@+id/btn_privacy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Privasi"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#C2185B"
-            android:layout_marginBottom="16dp"/>
+                <!-- Notifikasi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
 
-        <!-- Tombol Kembali -->
-        <Button
-            android:id="@+id/btn_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kembali"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#880E4F"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_circle_notifications_24" />
 
+                    <TextView
+                        android:id="@+id/notificasion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Notifikasi"
+                        android:textColor="#72383D"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD" />
+
+                <!-- Bahasa -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_language_24" />
+
+                    <TextView
+                        android:id="@+id/bahasa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Bahasa"
+                        android:textColor="#72383D"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD" />
+
+                <!-- Tentang Aplikasi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_manage_accounts_24" />
+
+                    <TextView
+                        android:id="@+id/tentang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Tentang Aplikasi"
+                        android:textColor="#72383D"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>

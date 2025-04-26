@@ -17,9 +17,10 @@
             android:layout_height="wrap_content"
             android:text="Sign up"
             android:layout_marginTop="20dp"
-            android:textSize="20sp"
+            android:textSize="24dp"
             android:gravity="center"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginBottom="15sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -115,44 +116,13 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NIM Pengguna"
-                android:textStyle="bold"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidth="2dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/NIM"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Masukkan NIM"
-                    android:inputType="text" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
         <Button
             android:id="@+id/buttonsignup"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_gravity="center"
-            android:backgroundTint="#E91E63"
+            android:backgroundTint="#72383d"
             android:text="Sign Up"
             android:textColor="#FFFFFF"/>
 

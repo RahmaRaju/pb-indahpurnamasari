@@ -2,36 +2,61 @@ package com.example.aplikasiindah;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.aplikasiindah.R;
 
 public class MainSetting extends AppCompatActivity {
 
-    private Button btnChangePassword, btnNotification, btnPrivacy, btnBack;
+    private ImageButton btnBack;
+    private TextView tvNotifikasi, tvBahasa, tvTentang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main_setting);
+        setContentView(R.layout.activity_main_setting); // Pastikan ini sesuai nama file XML kamu
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        // Inisialisasi view
+        btnBack = findViewById(R.id.btn_back);
+        tvNotifikasi = findViewById(R.id.notificasion);
+        tvBahasa = findViewById(R.id.bahasa);
+        tvTentang = findViewById(R.id.tentang);
+
+        // Tombol kembali
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Kembali ke activity sebelumnya
+            }
         });
 
-        // Inisialisasi UI
-        btnChangePassword = findViewById(R.id.btn_change_password);
-        btnNotification = findViewById(R.id.btn_notification);
-        btnPrivacy = findViewById(R.id.btn_privacy);
-        btnBack = findViewById(R.id.btn_back);
+        // Klik Notifikasi
+        tvNotifikasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainSetting.this, Mainnotification.class));
+            }
+        });
 
+// Klik Bahasa
+        tvBahasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainSetting.this, MainBahasa.class));
+            }
+        });
 
+// Klik Tentang Aplikasi
+        tvTentang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainSetting.this, MainTentang.class));
+            }
+        });
     }
 }

@@ -2,25 +2,23 @@ package com.example.aplikasiindah;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainProfile extends AppCompatActivity {
 
+    private ImageButton btnBack;
     private ImageView profileImage;
+    private TextView btnUbahProfile, btnKeluar;
     private TextView profileName, profileEmail;
-    private Button btnEditProfile, btnLogout;
     private FirebaseAuth auth;
     private FirebaseUser user;
 
@@ -30,50 +28,52 @@ public class MainProfile extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_profile);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        // Inisialisasi Firebase Authentication
+        // Inisialisasi Firebase Auth
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
-        // Inisialisasi UI
+        // Inisialisasi view
+        btnBack = findViewById(R.id.btn_back);
         profileImage = findViewById(R.id.profile_image);
-        profileName = findViewById(R.id.profile_name);
-        profileEmail = findViewById(R.id.profile_email);
-        btnEditProfile = findViewById(R.id.btn_edit_profile);
-        btnLogout = findViewById(R.id.btn_logout);
+        btnUbahProfile = findViewById(R.id.btnubahprofile);
+        btnKeluar = findViewById(R.id.btnkeluar);
 
-        // Menampilkan data user dari Firebase Authentication
+        // Nama dan Email diambil dari Firebase
+        profileName = findViewById(R.id.nama);
+        profileEmail = findViewById(R.id.email);
+
+        // Coba isi data nama dan email dari user Firebase
         if (user != null) {
-            profileName.setText(user.getDisplayName() != null ? user.getDisplayName() : "User");
-            profileEmail.setText(user.getEmail() != null ? user.getEmail() : "Email tidak tersedia");
+            String name = user.getDisplayName();
+            String email = user.getEmail();
 
-            // Set default gambar profil
-            profileImage.setImageResource(R.drawable.profil);
+
+            profileName.setText(name != null ? name : "Nama tidak tersedia");
+            profileEmail.setText(email != null ? email : "Email tidak tersedia");
         }
 
-        // Tombol Edit Profile
-        btnEditProfile.setOnClickListener(view -> {
+        // Tombol kembali
+        btnBack.setOnClickListener(v -> onBackPressed());
+
+        // Tombol ubah profil
+        btnUbahProfile.setOnClickListener(v -> {
             Intent intent = new Intent(MainProfile.this, MainEditProfile.class);
             startActivity(intent);
         });
 
-        // Tombol Logout
-        btnLogout.setOnClickListener(view -> showLogoutDialog());
+        // Tombol keluar
+        btnKeluar.setOnClickListener(v -> showLogoutDialog());
     }
 
-    // Konfirmasi Logout
     private void showLogoutDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
-                .setPositiveButton("Ya", (dialog, i) -> {
+                .setPositiveButton("Ya", (dialog, which) -> {
                     auth.signOut();
-                    startActivity(new Intent(MainProfile.this, LoginActivity.class));
+                    Intent intent = new Intent(MainProfile.this, MainEditProfile.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                     finish();
                 })
                 .setNegativeButton("Batal", null)

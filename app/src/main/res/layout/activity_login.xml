@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Silahkan Login Terlebih Dahulu"
+            android:text="Silahkan Login"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
             android:gravity="center"
@@ -97,9 +97,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_gravity="center"
-            android:backgroundTint="#E91E63"
+            android:backgroundTint="#72383d"
             android:text="Login"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
 
 
         <LinearLayout
@@ -138,7 +140,8 @@
                     android:layout_margin="2dp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    />
+                    android:textColor="#72383d" />
+
 
             </LinearLayout>
 

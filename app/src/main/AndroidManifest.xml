@@ -13,6 +13,27 @@
         android:theme="@style/Theme.AplikasiIndah"
         tools:targetApi="31">
         <activity
+            android:name=".MainReminder"
+            android:exported="false" />
+        <activity
+            android:name=".MainNotes"
+            android:exported="false" />
+        <activity
+            android:name=".MainSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".MainTaskList"
+            android:exported="false" />
+        <activity
+            android:name=".MainTentang"
+            android:exported="false" />
+        <activity
+            android:name=".MainBahasa"
+            android:exported="false" />
+        <activity
+            android:name=".Mainnotification"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
@@ -32,9 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".MainHome"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity5"
             android:exported="false" />
         <activity
             android:name=".MainLogin"

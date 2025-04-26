@@ -13,11 +13,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainSignUp extends AppCompatActivity {
 
-    TextInputEditText username,email,password,nim;
+    TextInputEditText username,email,password;
     Button loginbutton;
+    private DatabaseReference database;
 
 
     @Override
@@ -34,36 +37,30 @@ public class MainSignUp extends AppCompatActivity {
         username = findViewById(R.id.pengguna);
         email=findViewById(R.id.Email);
         password=findViewById(R.id.katasandi);
-        nim=findViewById(R.id.NIM);
         loginbutton=findViewById(R.id.buttonsignup);
 
+        database = FirebaseDatabase.getInstance().getReferenceFromUrl("https://database-1d1d7-default-rtdb.firebaseio.com/");
+
         loginbutton.setOnClickListener(view ->{
-            String nama,em,pw,nm;
+            String nama,em,pw;
 
             nama = String.valueOf(username.getText());
             em = String.valueOf(email.getText());
             pw = String.valueOf(password.getText());
-            nm = String.valueOf(nim.getText());
 
-            if (TextUtils.isEmpty(nama)){
-                Toast.makeText(MainSignUp.this, "Enter Username", Toast.LENGTH_LONG).show();
-                username.requestFocus();
-            } else if (TextUtils.isEmpty(em)) {
-                Toast.makeText(MainSignUp.this, "Enter Email", Toast.LENGTH_LONG).show();
-                email.requestFocus();
-            } else if (TextUtils.isEmpty(pw)) {
-                Toast.makeText(MainSignUp.this, "Enter Password", Toast.LENGTH_LONG).show();
-                password.requestFocus();
-            } else if (TextUtils.isEmpty(nm)) {
-                Toast.makeText(MainSignUp.this, "Enter NIM", Toast.LENGTH_LONG).show();
-                nim.requestFocus();
-            } else {
-                //methods public void
+
+            if (nama.isEmpty() || em.isEmpty() || pw.isEmpty()){
+                Toast.makeText(getApplicationContext(), "Lengkapi data terlebih dahulu", Toast.LENGTH_SHORT).show();
+            }else{
+                database = FirebaseDatabase.getInstance().getReference("users");
+                database.child(nama).child("nama").setValue(nama);
+                database.child(nama).child("em").setValue(em);
+                database.child(nama).child("pw").setValue(pw);
+
+                Toast.makeText(getApplicationContext(), "Register berhasil", Toast.LENGTH_SHORT).show();
+                Intent register = new Intent(getApplicationContext(), MainLogin.class);
+                startActivity(register);
             }
-
-            Intent intent = new Intent(getApplicationContext(), MainHome.class);
-            startActivity(intent);
-            finish();
         });
 
     }

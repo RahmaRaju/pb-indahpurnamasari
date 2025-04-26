@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:id="@+id/main"
-    android:background="#FCE4EC"
-    tools:context=".MainProfile">
+    android:background="#FFFFFF"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,57 +13,167 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
+        <!-- Header mirip home -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="109dp"
+            android:layout_marginBottom="28dp"
+            android:background="#72383D"
+            android:padding="26dp">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@null"
+                android:contentDescription="Kembali"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Profil Saya"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+        </RelativeLayout>
+
         <!-- Foto Profil -->
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            android:src="@drawable/profil"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#E91E63"
-            android:scaleType="centerCrop"
-        />
+        <androidx.cardview.widget.CardView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="70dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#FFFFFF">
 
-        <!-- Nama Pengguna -->
-        <TextView
-            android:id="@+id/profile_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Indah Purnama Sari"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#880E4F"
-            android:layout_marginBottom="6dp"/>
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_account_box_24"
+                android:scaleType="centerInside"
+                android:padding="20dp" />
+        </androidx.cardview.widget.CardView>
 
-        <!-- Email -->
-        <TextView
-            android:id="@+id/profile_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="indahips409@gmail.com"
-            android:textSize="16sp"
-            android:textColor="#AD1457"
-            android:layout_marginBottom="20dp"/>
-
-        <!-- Tombol Edit Profile -->
-        <Button
-            android:id="@+id/btn_edit_profile"
+        <!-- Informasi Akun -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#E91E63"
-            android:layout_marginBottom="12dp"/>
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
 
-        <!-- Tombol Logout -->
-        <Button
-            android:id="@+id/btn_logout"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Nama Lengkap -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" /> <!-- Memberikan margin bawah -->
+
+                <TextView
+                    android:id="@+id/nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Indah Purnama Sari"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Email -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp" /> <!-- Memberikan margin atas -->
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="indahips@gmail.com"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Card Aksi -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#C2185B"/>
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_edit_24" />
+
+                    <TextView
+                        android:id="@+id/btnubahprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Ubah Profil"
+                        android:textColor="#72383D"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_arrow_outward_24" />
+
+                    <TextView
+                        android:id="@+id/btnkeluar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Keluar"
+                        android:textColor="#D32F2F"
+                        android:textSize="16sp"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>
